@@ -2,3 +2,11 @@
 .terraform/
 .terraform*
 *terraform*
+.terraform/
+.terraform*
+.terraformrc
+terraform.rc
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
