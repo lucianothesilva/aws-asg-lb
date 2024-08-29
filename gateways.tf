@@ -6,7 +6,7 @@ resource "aws_eip" "eip" {
   depends_on = [aws_internet_gateway.internet_gtw]
   domain     = "vpc"
   tags = {
-    Name = "nat_eip"
+    Name = var.eip_name
   }
 }
 
@@ -15,7 +15,7 @@ resource "aws_nat_gateway" "priv_sub_nat" {
   subnet_id     = aws_subnet.pub_subnet_1b.id
 
   tags = {
-    Name = "Private subnet nat"
+    Name = var.priv_sub_nat_name
   }
 
   depends_on = [aws_internet_gateway.internet_gtw]

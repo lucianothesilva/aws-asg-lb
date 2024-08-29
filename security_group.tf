@@ -1,5 +1,5 @@
 resource "aws_security_group" "security_group_elb" {
-  name   = "teste-lu-security-group-elb"
+  name   = var.security_group_elb_name
   vpc_id = aws_vpc.vpc.id
 
   ingress {
@@ -31,7 +31,7 @@ resource "aws_security_group" "security_group_elb" {
 
 
 resource "aws_security_group" "security_group_ec2" {
-  name   = "teste-lu-security-group-ec2"
+  name   = var.security_group_ec2_name
   vpc_id = aws_vpc.vpc.id
 
   ingress {

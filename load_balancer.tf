@@ -1,5 +1,5 @@
 resource "aws_lb" "load_balancer" {
-  name               = "teste-lu-load-balancer"
+  name               = var.load_balancer_name
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.security_group_elb.id]
@@ -8,7 +8,7 @@ resource "aws_lb" "load_balancer" {
 }
 
 resource "aws_lb_target_group" "lb_target" {
-  name     = "lb-target"
+  name     = var.load_balancer_target
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.vpc.id

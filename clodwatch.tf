@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "requests_alarm" {
-  alarm_name          = "high-request-count"
+  alarm_name          = var.alarm_name
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 2
   metric_name         = "RequestCount"
@@ -7,7 +7,7 @@ resource "aws_cloudwatch_metric_alarm" "requests_alarm" {
   period              = 60
   statistic           = "Sum"
   threshold           = 60 // Requests por minuto (1 por segundo)
-  alarm_description   = "Alarm if the request count per minute is >= 60"
+  alarm_description   = "Alarme se a contagem de requisições por minuto for >= 60"
   dimensions = {
     LoadBalancer = aws_lb.load_balancer.arn_suffix
   }
